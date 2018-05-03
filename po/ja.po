@@ -431,7 +431,7 @@ msgstr "'%s'でソケットのバインドのエラー: %s\n"
 
 #, c-format
 msgid "can't set permissions of '%s': %s\n"
-msgstr "'%s'の許可が設定できません: %s\n"
+msgstr "'%s'のパーミッションを設定できません: %s\n"
 
 #, c-format
 msgid "listening on socket '%s'\n"
@@ -737,11 +737,11 @@ msgstr "コア・ダンプを無効にできません: %s\n"
 
 #, c-format
 msgid "Warning: unsafe ownership on %s \"%s\"\n"
-msgstr "警告: '%s'の安全でない所有 \"%s\"\n"
+msgstr "警告: '%s'の安全でない所有権 \"%s\"\n"
 
 #, c-format
 msgid "Warning: unsafe permissions on %s \"%s\"\n"
-msgstr "警告: '%s'の安全でない許可 \"%s\"\n"
+msgstr "警告: '%s'の安全でないパーミッション \"%s\"\n"
 
 #, c-format
 msgid "waiting for file '%s' to become accessible ...\n"
@@ -813,29 +813,34 @@ msgid "unknown debug flag '%s' ignored\n"
 msgstr "未知のdebugフラグ'%s'は無視されました\n"
 
 #, c-format
-msgid "no running gpg-agent - starting '%s'\n"
-msgstr "gpg-agentが実行されていません - '%s'を開始します\n"
+msgid "waiting for the dirmngr to come up ... (%ds)\n"
+msgstr "dirmngrの起動のため、%d秒待ちます\n"
 
 #, c-format
 msgid "waiting for the agent to come up ... (%ds)\n"
 msgstr "agentの起動のため、%d秒待ちます\n"
 
-msgid "connection to agent established\n"
-msgstr "エージェントへの接続が確立しました。\n"
-
-msgid "connection to agent is in restricted mode\n"
-msgstr "エージェントへの接続は制限モードです。\n"
-
-#, c-format
-msgid "no running Dirmngr - starting '%s'\n"
-msgstr "dirmngrが動いていません - 開始します'%s'\n"
-
-#, c-format
-msgid "waiting for the dirmngr to come up ... (%ds)\n"
-msgstr "dirmngrの起動のため、%d秒待ちます\n"
-
 msgid "connection to the dirmngr established\n"
 msgstr "dirmngrへの接続が確立しました\n"
+
+#, fuzzy
+#| msgid "connection to agent established\n"
+msgid "connection to the agent established\n"
+msgstr "エージェントへの接続が確立しました。\n"
+
+#, c-format
+msgid "no running gpg-agent - starting '%s'\n"
+msgstr "gpg-agentが実行されていません - '%s'を開始します\n"
+
+#, fuzzy
+#| msgid "connection to agent is in restricted mode\n"
+msgid "connection to the agent is in restricted mode\n"
+msgstr "エージェントへの接続は制限モードです。\n"
+
+#, fuzzy, c-format
+#| msgid "no running Dirmngr - starting '%s'\n"
+msgid "no running dirmngr - starting '%s'\n"
+msgstr "dirmngrが動いていません - 開始します'%s'\n"
 
 #. TRANSLATORS: Copy the prefix between the vertical bars
 #. verbatim.  It will not be printed.
@@ -1229,14 +1234,11 @@ msgstr "あなたの選択は? "
 msgid "[not set]"
 msgstr "[未設定]"
 
-msgid "male"
-msgstr "男"
+msgid "Mr."
+msgstr ""
 
-msgid "female"
-msgstr "女"
-
-msgid "unspecified"
-msgstr "無指定"
+msgid "Mrs."
+msgstr ""
 
 msgid "not forced"
 msgstr "強制なし"
@@ -1245,7 +1247,7 @@ msgid "forced"
 msgstr "強制"
 
 msgid "Error: Only plain ASCII is currently allowed.\n"
-msgstr "エラー： 普通のASCIIだけが今、許可されています。\n"
+msgstr "エラー： 現在普通のASCIIだけが許可されています。\n"
 
 msgid "Error: The \"<\" character may not be used.\n"
 msgstr "エラー: \"<\"文字は使えません。\n"
@@ -1289,8 +1291,8 @@ msgstr "エラー: 優先指定の文字列の長さが無効です。\n"
 msgid "Error: invalid characters in preference string.\n"
 msgstr "エラー: 優先指定の文字列に無効な文字があります。\n"
 
-msgid "Sex ((M)ale, (F)emale or space): "
-msgstr "性別 ((M)男、(F)女、または空白): "
+msgid "Salutation (M = Mr., F = Mrs., or space): "
+msgstr ""
 
 msgid "Error: invalid response.\n"
 msgstr "エラー: 無効な応答。\n"
@@ -1315,10 +1317,16 @@ msgstr "現行鍵情報の取得エラー: %s\n"
 msgid "Replace existing key? (y/N) "
 msgstr "既存の鍵を置き換えしますか? (y/N) "
 
+#, fuzzy
+#| msgid ""
+#| "Note: There is no guarantee that the card supports the requested size.\n"
+#| "      If the key generation does not succeed, please check the\n"
+#| "      documentation of your card to see what sizes are allowed.\n"
 msgid ""
-"Note: There is no guarantee that the card supports the requested size.\n"
-"      If the key generation does not succeed, please check the\n"
-"      documentation of your card to see what sizes are allowed.\n"
+"Note: There is no guarantee that the card supports the requested\n"
+"      key type or size.  If the key generation does not succeed,\n"
+"      please check the documentation of your card to see which\n"
+"      key types and sizes are supported.\n"
 msgstr ""
 "*注意*: カードが要求された鍵長をサポートしているという保証はありません。\n"
 "        鍵生成が成功しない場合、あなたのカードに関する技術文書を確認し、\n"
@@ -1460,7 +1468,9 @@ msgstr "ログイン名の変更"
 msgid "change the language preferences"
 msgstr "言語の優先指定の変更"
 
-msgid "change card holder's sex"
+#, fuzzy
+#| msgid "change card holder's sex"
+msgid "change card holder's salutation"
 msgstr "カード所有者の性別の変更"
 
 msgid "change a CA fingerprint"
@@ -1567,8 +1577,9 @@ msgstr "パスフレーズの作成エラー: %s\n"
 msgid "can't use a symmetric ESK packet due to the S2K mode\n"
 msgstr "S2Kモードのため、共通鍵ESKパケットを使えません\n"
 
-#, c-format
-msgid "using cipher %s\n"
+#, fuzzy, c-format
+#| msgid "using cipher %s\n"
+msgid "using cipher %s.%s\n"
 msgstr "暗号方式 %s を使います\n"
 
 #, c-format
@@ -1608,16 +1619,18 @@ msgstr ""
 msgid "forcing symmetric cipher %s (%d) violates recipient preferences\n"
 msgstr "共通鍵暗号方式 %s (%d) の強制が、受取人の優先指定をそむきます\n"
 
-#, c-format
-msgid "%s/%s encrypted for: \"%s\"\n"
+#, fuzzy, c-format
+#| msgid "%s/%s encrypted for: \"%s\"\n"
+msgid "%s/%s.%s encrypted for: \"%s\"\n"
 msgstr "%s/%s暗号化 受信者:\"%s\"\n"
 
 #, c-format
 msgid "option '%s' may not be used in %s mode\n"
 msgstr "オプション'%s'を%sモードで使うことはできません\n"
 
-#, c-format
-msgid "%s encrypted data\n"
+#, fuzzy, c-format
+#| msgid "%s encrypted data\n"
+msgid "%s.%s encrypted data\n"
 msgstr "%s暗号化済みデータ\n"
 
 #, c-format
@@ -1637,12 +1650,13 @@ msgstr "遠隔プログラムの実行は、サポートしていません\n"
 msgid ""
 "external program calls are disabled due to unsafe options file permissions\n"
 msgstr ""
-"オプション・ファイルの許可モードが安全ではないので、外部プログラムの呼出しは"
-"禁止となります。\n"
+"オプション・ファイルのパーミッションが安全ではないので、外部プログラムの呼び"
+"出しは禁止となります。\n"
 
 msgid "this platform requires temporary files when calling external programs\n"
 msgstr ""
-"このプラットホームだと、外部プログラムの呼出しには、一時ファイルが必要です\n"
+"このプラットホームだと、外部プログラムの呼び出しには、一時ファイルが必要で"
+"す\n"
 
 #, c-format
 msgid "unable to execute program '%s': %s\n"
@@ -1654,7 +1668,7 @@ msgstr "シェル'%s'を実行できません: %s\n"
 
 #, c-format
 msgid "system error while calling external program: %s\n"
-msgstr "外部プログラムの呼出しでシステム・エラー: %s\n"
+msgstr "外部プログラムの呼び出しでシステム・エラー: %s\n"
 
 msgid "unnatural exit of external program\n"
 msgstr "外部プログラムが、不自然に終了\n"
@@ -1992,55 +2006,57 @@ msgstr "=記号が、グループ定義'%s'内に見つかりません\n"
 
 #, c-format
 msgid "WARNING: unsafe ownership on homedir '%s'\n"
-msgstr "*警告*: homedir '%s'の安全でない所有\n"
+msgstr "*警告*: homedir '%s'の安全でない所有権\n"
 
 #, c-format
 msgid "WARNING: unsafe ownership on configuration file '%s'\n"
-msgstr "*警告*: コンフィグレーション・ファイル'%s'の安全でない所有\n"
+msgstr "*警告*: コンフィグレーション・ファイル'%s'の安全でない所有権\n"
 
 #, c-format
 msgid "WARNING: unsafe ownership on extension '%s'\n"
-msgstr "*警告*: 拡張'%s'の安全でない所有\n"
+msgstr "*警告*: 拡張'%s'の安全でない所有権\n"
 
 #, c-format
 msgid "WARNING: unsafe permissions on homedir '%s'\n"
-msgstr "*警告*: homedir '%s'の安全でない許可\n"
+msgstr "*警告*: homedir '%s'の安全でないパーミッション\n"
 
 #, c-format
 msgid "WARNING: unsafe permissions on configuration file '%s'\n"
-msgstr "*警告*: コンフィグレーション・ファイル'%s'の安全でない許可\n"
+msgstr "*警告*: コンフィグレーション・ファイル'%s'の安全でないパーミッション\n"
 
 #, c-format
 msgid "WARNING: unsafe permissions on extension '%s'\n"
-msgstr "*警告*: 拡張'%s'の安全でない許可\n"
+msgstr "*警告*: 拡張'%s'の安全でないパーミッション\n"
 
 #, c-format
 msgid "WARNING: unsafe enclosing directory ownership on homedir '%s'\n"
-msgstr "*警告*: homedir '%s'の安全でない上位ディレクトリ所有\n"
+msgstr "*警告*: homedir '%s'の安全でない上位ディレクトリ所有権\n"
 
 #, c-format
 msgid ""
 "WARNING: unsafe enclosing directory ownership on configuration file '%s'\n"
 msgstr ""
-"*警告*: コンフィグレーション・ファイル'%s'の安全でない上位ディレクトリ所有\n"
+"*警告*: コンフィグレーション・ファイル'%s'の安全でない上位ディレクトリ所有"
+"権\n"
 
 #, c-format
 msgid "WARNING: unsafe enclosing directory ownership on extension '%s'\n"
-msgstr "*警告*: 拡張'%s'の安全でない上位ディレクトリ所有\n"
+msgstr "*警告*: 拡張'%s'の安全でない上位ディレクトリ所有権\n"
 
 #, c-format
 msgid "WARNING: unsafe enclosing directory permissions on homedir '%s'\n"
-msgstr "*警告*: homedir '%s'の安全でない上位ディレクトリ許可\n"
+msgstr "*警告*: homedir '%s'の安全でない上位ディレクトリパーミッション\n"
 
 #, c-format
 msgid ""
 "WARNING: unsafe enclosing directory permissions on configuration file '%s'\n"
 msgstr ""
-"*警告*: コンフィグレーション・ファイル'%s'の安全でない上位ディレクトリ許可\n"
+"*警告*: コンフィグレーション・ファイル'%s'の安全でない上位ディレクトリパー"
+"ミッション\n"
 
 #, c-format
 msgid "WARNING: unsafe enclosing directory permissions on extension '%s'\n"
-msgstr "*警告*: 拡張'%s'の安全でない上位ディレクトリ許可\n"
+msgstr "*警告*: 拡張'%s'の安全でない上位ディレクトリパーミッション\n"
 
 #, c-format
 msgid "unknown configuration item '%s'\n"
@@ -2228,6 +2244,11 @@ msgstr "%s のため、セキュアでないメモリで実行しません\n"
 msgid "selected cipher algorithm is invalid\n"
 msgstr "選択された暗号アルゴリズムは、無効です\n"
 
+#, fuzzy
+#| msgid "selected digest algorithm is invalid\n"
+msgid "selected AEAD algorithm is invalid\n"
+msgstr "選択されたダイジェスト・アルゴリズムは、無効です\n"
+
 msgid "selected compression algorithm is invalid\n"
 msgstr "選択された圧縮アルゴリズムは、無効です\n"
 
@@ -2261,15 +2282,30 @@ msgstr "無効なデフォルトの優先指定\n"
 msgid "invalid personal cipher preferences\n"
 msgstr "無効な個人用暗号方式の優先指定\n"
 
+#, fuzzy
+#| msgid "invalid personal cipher preferences\n"
+msgid "invalid personal AEAD preferences\n"
+msgstr "無効な個人用暗号方式の優先指定\n"
+
 msgid "invalid personal digest preferences\n"
 msgstr "無効な個人用ダイジェストの優先指定\n"
 
 msgid "invalid personal compress preferences\n"
 msgstr "無効な個人用圧縮の優先指定\n"
 
+#, fuzzy, c-format
+#| msgid "keysize invalid; using %u bits\n"
+msgid "chunk size invalid - using %d\n"
+msgstr "無効な鍵長。%uビットにします\n"
+
 #, c-format
 msgid "%s does not yet work with %s\n"
 msgstr "%sは%sではまだ機能しません\n"
+
+#, fuzzy, c-format
+#| msgid "cipher algorithm '%s' may not be used in %s mode\n"
+msgid "AEAD algorithm '%s' may not be used in %s mode\n"
+msgstr "暗号アルゴリズム'%s'を%sモードで使うことはできません\n"
 
 #, c-format
 msgid "digest algorithm '%s' may not be used in %s mode\n"
@@ -2508,6 +2544,11 @@ msgstr ""
 
 #, c-format
 msgid "         \"%s\": preference for cipher algorithm %s\n"
+msgstr "         \"%s\": 暗号アルゴリズムの優先指定 %s\n"
+
+#, fuzzy, c-format
+#| msgid "         \"%s\": preference for cipher algorithm %s\n"
+msgid "         \"%s\": preference for AEAD algorithm %s\n"
 msgstr "         \"%s\": 暗号アルゴリズムの優先指定 %s\n"
 
 #, c-format
@@ -3275,6 +3316,9 @@ msgstr "\"%s\"はフ正しいィンガープリントではありません\n"
 msgid "subkey \"%s\" not found\n"
 msgstr "副鍵\"%s\"が見つかりません\n"
 
+msgid "AEAD: "
+msgstr ""
+
 msgid "Digest: "
 msgstr "ダイジェスト: "
 
@@ -3610,6 +3654,11 @@ msgstr "ダイジェストの優先指定が多すぎます\n"
 
 msgid "too many compression preferences\n"
 msgstr "圧縮の優先指定が多すぎます\n"
+
+#, fuzzy
+#| msgid "too many cipher preferences\n"
+msgid "too many AEAD preferences\n"
+msgstr "暗号方式の優先指定が多すぎます\n"
 
 #, c-format
 msgid "invalid item '%s' in preference string\n"
@@ -4202,9 +4251,15 @@ msgstr "*警告*: URI %s からデータを取れません: %s\n"
 msgid "weird size for an encrypted session key (%d)\n"
 msgstr "変な長さの暗号化済みセッション鍵 (%d)\n"
 
-#, c-format
-msgid "%s encrypted session key\n"
+#, fuzzy, c-format
+#| msgid "%s encrypted session key\n"
+msgid "%s.%s encrypted session key\n"
 msgstr "%s 暗号化済みセッション鍵\n"
+
+#, fuzzy, c-format
+#| msgid "encrypted with unknown algorithm %d\n"
+msgid "encrypted with unknown algorithm %d.%s\n"
+msgstr "不明のアルゴリズム%dによる暗号化\n"
 
 #, c-format
 msgid "passphrase generated with unknown digest algorithm %d\n"
@@ -4985,8 +5040,8 @@ msgstr ""
 "みつからないように隠せるような媒体に移してください。もし_悪者_がこの証明書へ"
 "の\n"
 "アクセスを得ると、あなたの鍵を使えなくすることができます。\n"
-"媒体が読出し不能になった場合に備えて、この証明書を印刷して保管するのが賢明で"
-"す。\n"
+"媒体が読み出し不能になった場合に備えて、この証明書を印刷して保管するのが賢明"
+"です。\n"
 "しかし、ご注意ください。あなたのマシンの印字システムは、他の人がアクセスでき"
 "る\n"
 "場所にデータをおくことがあります!\n"
@@ -5126,8 +5181,9 @@ msgstr ""
 msgid "signing:"
 msgstr "署名:"
 
-#, c-format
-msgid "%s encryption will be used\n"
+#, fuzzy, c-format
+#| msgid "%s encryption will be used\n"
+msgid "%s.%s encryption will be used\n"
 msgstr "%s暗号化を使用します\n"
 
 msgid "key is not flagged as insecure - can't use it with the faked RNG!\n"
@@ -7995,7 +8051,7 @@ msgid "line too long - skipped\n"
 msgstr "行が長すぎます - スキップされました\n"
 
 msgid "line shortened due to embedded Nul character\n"
-msgstr "組込みのNulキャラクタのため行は短くされました\n"
+msgstr "組み込みのNulキャラクタのため行は短くされました\n"
 
 #, c-format
 msgid "unknown command '%s'\n"
@@ -8355,6 +8411,18 @@ msgid ""
 msgstr ""
 "形式: gpg-check-pattern [オプション] パターンファイル\n"
 "パターンファイルに対して標準入力のパスフレーズを確認する\n"
+
+#~ msgid "male"
+#~ msgstr "男"
+
+#~ msgid "female"
+#~ msgstr "女"
+
+#~ msgid "unspecified"
+#~ msgstr "無指定"
+
+#~ msgid "Sex ((M)ale, (F)emale or space): "
+#~ msgstr "性別 ((M)男、(F)女、または空白): "
 
 #~ msgid "No change."
 #~ msgstr "変更なし。"
